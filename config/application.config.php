@@ -1,8 +1,9 @@
 <?php
 return array(
     'modules' => array(
+        'AssetManager',
         'Application',
-		'Admin',                  // <-- Agregamos esta línea
+	'Admin',                  // <-- Agregamos esta línea
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

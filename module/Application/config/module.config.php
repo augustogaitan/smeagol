@@ -99,4 +99,20 @@ return array(
             ),
         ),
     ),
+    // agregar este bloque
+    'asset_manager' => array(
+    		'resolver_configs' => array(
+    				'paths' => array(
+    						__DIR__ . '/../public',
+    				),
+    		),
+    ),
+                        'caching' => array(
+				'default' => array(
+					'cache'     => 'Filesystem',
+					'options' => array(
+						'dir' => __DIR__.'/../../../public/cache', // path/to/cache
+					),
+				),
+			),
 );
