@@ -1,0 +1,726 @@
+########################################################################################
+#                                                                                      #  
+#                                 Curso de Zend Framework 2                            #
+#                                                                                      #
+########################################################################################
+Capítulo 1: Despliegue
+----------------------------------------------------------------------------------------------
+                   
+1.- Introducción
+#####################################################################################################
+
+Zend framework 2 es el framework de los creadores del núcleo de PHP (Zend);
+La versión 2 de este popular framework refleja los cambios introducidos en
+PHP 5.3 como son los espacios de nombres (namespaces), closures y un mejor uso
+de la Programación Orientada a Objetos; así como de los patrones de diseño.
+
+El objetivo de Zend Framework 2 es apoyar al programador en el desarrollo
+de aplicaciones web empresariales y complejas.
+
+Zend Framework 2 puede ser usado para el desarrollo de aplicaciones de cualquier
+tamaño; por tanto su uso no es tan sencillo como otros frameworks;
+como Code Igniter o Cake PHP.
+
+Zend Framework 2 fue publicado en setiembre del 2012 y actualmente cuenta con una gran 
+comunidad de desarrolladores.
+
+
+2.- Características Nuevas
+######################################################################################################
+Zend Framework 2 fue desarrollado con la idea de evolucionar el framework; adaptándolo a la 
+evolución del lenguaje y tomando las mejores ideas de los frameworks de desarrollo;
+el resultado fue un framework moderno y muy fexible que brinda al programador
+característica muy importantes para el desarrollo de aplicaciones empresariales.
+
+Las principales novedades de Zend 2 respecto a la versión anterior son las siguientes:
+
+- Desarrollo basado en Pruebas Unitarias con PHPUnit
+- Un nuevo sistema de módulos para organizar el código 
+- Una nueva arquitectura basada en servicios mediante la Inyección de Dependencias
+- Un gestor de eventos para olvidarse de los hooks y poder ejecutar código 
+propio en cualquier punto de la ejecución de las aplicaciones
+
+
+3.- Instalación del Entorno de Desarrollo (LAMP)
+#######################################################################################################
+
+El objetivo es tener un sistema operativo Linux para el despliegue de los proyectos
+Para ellos se puede optar por instalar Ubuntu físicamente o en una máquina virtual 
+por medio de Virtualbox.
+El otro medio es crear una cuenta en www.koding.com que no provee de una máquina virtual
+gratuita con 3 GB de RAM
+
+3.1.- Instalación del Sistema Operativo
+#######################################################################################################
+
+3.1.1- Instalación de Ubuntu en una máquina Virtual sobre VirtualBox
+-----------------------------------------------------------------------------------------
+
+3.1.1.1.- Instalación de Virtualbox
+-----------------------------------------------------------------------------------------
+   Descargamos VirtualBox de 
+   http://www.virtualbox.org
+   y lo instalamos
+
+   En aula lo instalamos desde el dvd de software
+
+
+3.1.1.2.- Instalación de Ubuntu Linux en una Máquina Virtual de VirtualBox
+-----------------------------------------------------------------------------------------
+*  Le damos click al icono de Nueva y le damos 
+   nombre a la máquina virtual "Ubuntu LAMP Server", se va seleccionar 
+   Tipo: Linux
+   Versión: Ubuntu
+
+*  Seleccionamos 1024MB de RAM para la nueva máquina Virtual
+
+*  Creamos una nueva unidad de disco duro de y 
+   seleccionamos "Crear un disco Virtual Ahora"
+   - Tipo de unidad de disco duro: VDI
+   - Reservado Dinámicamente
+   - Ubicación y Tamaño
+     Por defecto se guarda en la carpeta VirtualBox VMs en la carpeta del usuario;
+     tamaño 6GB
+   - Crear
+
+*  Ahora le damos click en Configuración
+   - Seleccionamos Red y elejimos  Adaptador Puente
+     Nombre: Poner la tarjeta de Red
+   - Dar click en Almacenamiento y donde dice a la derecha Unidad CD/DVD dar click
+     al ícono de CD y seleccionar la unidad de CD donde está el disco instalador de 
+     Ubuntu; tambien se puede seleccionar el archivo iso; luego dar clik en Aceptar
+   - Dar click en la flecha verde "Iniciar" para arrancar la máquina virtual
+
+*  Ahora iniciará el CD de Ubuntu; despues de un momento nos saldrá un diálogo para 
+   - elegir el idioma y a la izquierda le damos click en "Instalar Ubuntu", le damos
+   - click en "Continuar"
+   - Borrar el disco e Instalar Ubuntu
+   - Instalar Ahora
+   - Donde se Encuentra "Lima"
+   - Distribución del Teclado "Español Latinoamericano"
+   - ¿Quién es Usted? 
+     Su nombre: alumno 
+     El nombre de su equipo: serverlamp
+     Nombre de usuario: alumno
+     Contraseña: alumno
+     Confirme su Contraseñ: alumno
+     Al final de la instalación nos pide Reiniciar  
+
+Nota: - Podemos hacer la instalación con la pantalla completa
+      - Para sacar el puntero del mouse de la máquina virtual, presionar el ctrl de
+        la derecha
+      - Si se demora en "Descargar fichero" o en "Descargar paquetes de idioma" 
+        dar click en la flecha de despliegue y luego "skip"
+
+3.1.1.3.- Configuración de la Red
+---------------------------------------------------------------------------------------
+   - Dar click a las flechas opuestas que está en la barra superior y elegir 
+     "Editar las conexiones"
+   - Seleccionar Conexion Cableada 1 y click en Editar
+   - Pestaña "Ajustes Ipv4"
+   - Método manual
+   - click en añadir:
+      Dirección: 192.168.130.Y
+      Mascara de Red: 24
+      Puerta de Enlace: 192.168.130.1
+      Servidores DNS: 192.168.100.4
+      Guardar y Cerrar.
+    
+3.1.2.- Creación de una cuenta en www.koding.com
+####################################################################################################
+La plataforma online Koding es un entorno de desarrollo con todas las herramientas necesarias 
+integradas, que además permite colaborar entre los usuarios.
+
+La instalación de programas de desarrollo diversos y el uso de herramientas variopintas 
+según sea el proyecto a acometer pueden volver loco a más de un programador. 
+No se sabe si los creadores de Koding llegaron hasta ese punto, pero lo cierto es que 
+inventaron el servicio para ellos mismos, para dejar de sufrir aprendiendo a manejar 
+recursos o configurando servidores. La idea era crear una plataforma para unas pocas personas, 
+pero cuando la abrieron comenzaron a llegar cientos de nuevos usuarios, 
+alentados por las comodidades a la hora de programar.
+
+Koding lleva a día de hoy cinco años de andadura y, pese a la original falta de ambición 
+de sus creadores por ganar dinero, se ha convertido en una empresa que atrae a desarrolladores 
+de muy diversos rincones. La plataforma ofrece un entorno integrado de desarrollo, 
+manejable desde el propio navegador y sin necesidad de instalar software en el equipo. 
+Permite programar y ejecutar código, mientras que también habilita la colaboración entre 
+usuarios sin cambiar de entorno.
+
+Entre los recursos que ofrece Koding (el plan básico es gratuito y a partir de ahí tarifas mensuales 
+personalizables) están una máquina virtual y una capacidad de almacenamiento de 3 GB, 
+ampliables hasta los 20 GB invitando a amigos a unirse al servicio. 
+Están a disposición del usuario las herramientas necesarias para desarrollar en cualquier 
+lenguaje y además existen aplicaciones creadas por la comunidad para facilitar el trabajo.
+
+El entorno colaborativo es otra de comodidades que ofrece Koding. 
+Los grupos pueden trabajar compartiendo recursos y espacio, aunque también es posible 
+entablar contacto con cualquier usuario y compartir el código con éste. 
+El servicio está reforzado con un componente social importante que constituye la parte más 
+original de la plataforma. 
+Su principal manifestación es una especie de timeline donde aparece la actividad del resto de 
+desarrolladores, con comentarios y apuntes sobre su trabajo.
+
+En el ámbito académico, Koding ofrece un espacio en el que se pueden compartir archivos y 
+todo tipo de documentos con una clase entera de alumnos, quienes a su vez pueden hacer sus 
+propias aportaciones. Este aspecto se cuida de tal manera que una parte está reservada 
+a la formación, con una importante cantidad de artículos y vídeos a los que se puede 
+acceder sin más costes. En esta documentación se encuentran las bases para aprender a 
+programar en Java, PHP, C o Python, así como para hacer aplicaciones de todo tipo o 
+trastear con MySQL
+
+
+3.2.- Instalación de SSH, Apache, PHP y MySQL
+######################################################################################################
+  
+   - Dar click en el icono Ubuntu y escribir en la barra de comandos 
+     terminal
+ 
+   - La terminal de Linux nos permite ejecutar comandos para administrar el sistema
+     operativo; al abrir la terminal iniciamos con el usuario alumno
+
+   - Para loguearnos como root (el superusuario de Linux) ejecutamos:
+
+     $> sudo su - 
+     clave: alumno
+     (En koding poner la clave de la cuenta que crearon)
+	 
+   - Primero actualizamos la lista de paquetes instalables
+
+     $> apt-get update   
+
+     Instalación de PHP, MySQL y Apache (Entorno de Desarrollo)
+     ----------------------------------------------------------------------------------
+     $> apt-get install php5 apache2 php5-cli php5-xdebug php5-mysql mysql-server php5-mcrypt php5-gd php5-memcache php-pear        
+     
+     Nos pide una contraseña para el root de Mysql
+     clave: alumno
+         
+     Reiniciamos apache
+     $> service apache2 restart
+     
+     Nota: desde windows abrir el navegador y entrar a la IP del servidor 
+           En koding ejecutar 
+           $> hostname 
+           Y acceder con el navegador al valor que nos dá koding
+                             
+
+3.3.- Comandos básicos para trabajar con archivos y directorios
+######################################################################################################################
+    En linux existe solo un directorio princiapl raiz / y en el cual se encuentran todos los demas directorios, 
+    Ej: el DOCUMENT_ROOT (raiz de pàginas web) se encuentra en /var/www
+
+    la base de datos se encuentra en /var/lib/mysql
+    los archivos de configuración de apache se encuentran en /etc/apache2
+
+    $> sudo su -
+
+    * Comando cd
+    ----------------------------------------------------------
+    Nos sirve para movernos por los directorios
+  
+    Ej:
+
+    $> cd /var/www
+    $> cd /etc/apache2
+    $> cd conf.d
+
+
+    * Comando pwd
+    ----------------------------------------------------------
+    Nos dice en que directorio nos encontramos
+  
+    Ej:
+
+    $> cd /var/www
+    $> pwd
+
+
+    * Comando ls
+    ----------------------------------------------------------
+    Nos sirve para listar los archivos y directorios
+  
+    Ej:
+
+    $> cd /var/www
+    $> ls
+
+    - Listar en columnas y detalles
+
+    Ej:
+
+    $> ls -l   (lista el directorio actual)
+    $> ls -l / (lista los directorios del raiz)
+    $> ls /etc/apache2/conf.d    (lista el directorio /etc/apache2/conf.d )
+     
+ 
+    * comando mkdir
+    ----------------------------------------------------------
+    Nos sirve para crear directorios
+
+    Ej:
+ 
+    $> cd /var/www
+    $> mkdir images
+    $> mkdir js
+    $> mkdir css
+
+    * comando nano
+    ----------------------------------------------------------
+    nano es un editor sencillo para crear archivos
+    Ej:
+    $> cd /var/www
+
+    $> nano index.php
+    <?php
+    echo "<h1>hola mundo</h1>";
+    ?>
+
+    ctrl + o --> grabar
+	Enter
+    ctrl + x --> salir
+
+    Desde windows entrar a la IP del servidor o Host de Koding con el navegador
+    http://vm-0.nombreusuario.kd.io/index.php
+
+    * comando cp    
+    ----------------------------------------------------------
+    Nos sirve para copiar archivos y directorios
+
+    Ej:
+
+    $> cd /var/www
+    $> cp index.php saludo.php (copia un archivo)
+ 
+    Desde windows entrar a la IP del servidor con el navegador
+    http://vm-0.nombreusuario.kd.io/saludo.php
+
+    $> cp -R images imagenes  (copia un directorio)
+    $> ls -l /var/www
+
+    * comando mv    
+    ----------------------------------------------------------
+    Nos sirve para renombrar y mover archivos y directorios
+
+    Ej:
+
+    $> cd /var/www
+    $> mv js javascript (renombrando el directorio js a javascript)
+    $> ls 
+    $> mkdir banners
+    $> mv banners images/ (moviendo el directorio banners a images)     
+
+
+3.4 El editor vim
+###############################################################################################
+    El editor vim es el editor más común en las plataformas unix; su resaltado
+    de syntaxis nos ayuda con los archivos de configuración
+
+    El Editor VIM
+    ------------- 
+    ESC			           : ingresa al modo comando
+    i			           : entra en modo insercion desde la misma linea
+    o			           : entra en modo insercion desde la sgte linea 
+    1G			           : va a la primera linea
+    23G			           : va a la linea 23
+    :45			           : va a la linea 45
+    G        	                   : va a la ultima linea
+    /palabra	                   : busca una cadena
+    n			           : sigue buscando
+    dd			           : corta o borra una linea
+    d8d			           : corta o borra 8 lineas
+    yy			           : copia una linea
+    y7y			           : copia 7 lineas
+    p			           : pega el contenido del portapapel
+    5p			           : pega 5 veces el contenido del portapapel
+    u			           : deshace la ultima accion
+    ctrl+r		           : rehace la ultima accion
+    x			           : borra una letra
+    :w			           : graba el archivo actual
+    :wq			           : graba y sale
+    :w!			           : graba de forma forzada
+    :wq!		           : graba y sale forzadamente
+    :q!		              	   : sale forzadamente
+    :1,$s/busqueda/reemplaza/g     :busca una cadena y la reemplaza
+    :! comando	                   : ejecuta un comando en bash y vuelve a VIM
+    :e archivo	                   : abre un nueva archivo en el sgte buffer
+    :b1			           : va el primer buffer abierto
+    :b2			           : va al segundo buffer, para cambiar de buffer hay que grabar el buffer actual 		
+    :set number	                   : muestra los numeros de linea
+    :set nonumber	           : quita los numeros de linea
+    :set paste	                   : habilita el pegado sin auto identificacion
+    :set ts=3	                   : establece a 3 los espacios de los tabs
+    Insertar                       : entra en modo de reemplazo
+    :saveas archivo                : guarda como nombre archivo
+    :shitf+a 	                   : entra en modo insercion al final dpel
+    D				   : elimina texto desde el cursor actual hasta el final de la linea
+    dG				   : elimina todo hasta la ultima linea
+    :wq! ++utf8 : guarda el fichero en modo UTFP (por defecto)
+    :nohl 		: cancela los resultados de busqueda
+
+
+Instalar VIM
+-------------
+
+$> sudo su -
+$> apt-get -y install vim
+
+Crear archivo poema
+----------------------------------------------------------
+$> vim poema
+i -----> Inserta texto
+Oh gran Linux que quita la ignorancia en mi vida,
+a ti te consagro mi aprendizaje.
+ESC ----> Lleva al modo comando
+:wq ----> graba y sale
+
+$> cat poema 
+
+Gestion de temporales
+----------------------------------------------------------
+$> vim poema   (agregar al final)
+G  ----> van a la última línea
+o  ----> modo inserción en una nueva línea
+Prometo alejarme del maligno windows
+
+
+Cerrar a la mala dando click en la X de la ventana del terminal
+o recargar la pagina con www.koding.com
+
+
+Vuelven a abrir la terminal
+$> sudo su -
+$> cd /var/www
+$> vim poema
+
+
+
+$> vim poema
+Sale el mensaje de alerta el temporal yp uedo elegir entre estas opciones
+[A]brir para lectura únicamente, (E)ditar de todas formas, (R)ecuperar, (B)orrar(S)alir, (A)bortar:
+
+Seleccionamos "r" y le damos enter
+i    -----> insetar texto
+desde mañana
+ESC  -----> volver al modo comando
+:wq! -----> grabar y salir forzadamente
+
+
+Borrar el temporal
+$> rm -f .poema.swp
+
+
+    Crear archivo saludo y ejecutar ejercicios de comandos vim
+
+    $> vim saludo
+        i	
+        hola mundo
+	ESC
+	yy
+	20p
+	G
+	o
+	windows es lo maximo
+	ESC
+	/hola
+	n
+	n
+	:set number
+	G
+	yy
+	30p
+	:1,$s/windows/linux/g
+	dd
+        45G
+	d2d
+	dG
+	u
+	ctrl+R  
+	:! date
+	:w
+	:e otrosaludo
+	:b1
+	1G
+	yG
+	:b2
+	p
+	:wq!
+
+$> cat saludo  (muestra el contenido del archivo)
+
+$> cat otrosaludo
+
+
+Archivo de configuracion de VIM
+---------------------------------------------------------------------------
+$> vim  /etc/vim/vimrc
+   30G   ---> ir a la linea 30
+              borrar la comilla inicial de las siguientes 3 lineas de la 30 a la 32
+   ESC
+   G     ---> ir a la última línea
+   o
+   set nobackup
+   set number
+   set ts=3
+   set paste
+   ESC :wq
+
+$> vim /etc/vim/vimrc
+   ESC:q
+
+
+4.- Instalación de ZendFramework 2
+#########################################################################################################   
+
+   Ahora que ya tenemos nuestro entorno LAMP vamos a configurar un primer 
+   proyecto con Zend Framework 2
+
+
+* Pre requisitos
+
+   1.- Primero necesitamos habilitar el módulo mod_rewrite en Apache y 
+       permitir el uso de .htaccess en los directorios
+
+
+4.1 .- Habilitando mod_rewrite en Apache 
+-----------------------------------------------------------------------
+   $> sudo su -
+   $> cd /etc/apache2/mods-enabled
+   $> ln -s ../mods-available/rewrite.load
+   $> service apache2 restart
+
+4.2.- Instalando Composer (Gestor de dependencias de librerías)
+---------------------------------------------------------------------
+   $> sudo su -
+
+   Primero instalamos curl (comando para descargar archivos)
+   $> apt-get install curl        
+
+   Ahora instalaremos git  (sistema de control de versiones distribuido)
+   $> apt-get install git
+
+   Descargamos composer y lo movemos al /usr/bin para ejecutarlo en cualquier directorio
+   $> curl -s https://getcomposer.org/installer | php --
+   $> mv composer.phar /usr/bin
+   
+   Nota: si nos sale un mensaje de warning de timezone en php
+
+   $> vim /etc/php5/cli/php.ini       (archivo de configuración para consola)
+   876: date.timezone = America/Lima 
+ 
+   $> vim /etc/php5/apache2/php.ini   (archivo de configuración para web)
+   876: date.timezone = America/Lima 
+
+4.3 .- Creando el proyecto de Zend Framework 2  
+---------------------------------------------------------------------
+   Con composer crearemos el proyecto zftest en el directorio /var/www/zftest
+   Esto nos creará el proyecto y nos descargará el ZendFramework2
+   
+   $> composer.phar create-project -sdev --repository-url="http://packages.zendframework.com" zendframework/skeleton-application /var/www/zftest
+
+   Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y 
+
+
+4.4.- Editando el VirtualHost para habilitar el uso de .htaccess 
+--------------------------------------------------------------------------------------------
+$> vim /etc/apache2/sites-enabled/000-default
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/www 
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /var/www>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All                         <---------- modificar, esto permite el uso de .htaccess
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        <Directory "/usr/lib/cgi-bin">
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    Alias /doc/ "/usr/share/doc/"
+    <Directory "/usr/share/doc/">
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+    </Directory>
+
+</VirtualHost>
+       
+Ahora reiniciamos apache  
+$> /etc/init.d/apache2 restart
+
+y accedemos al proyecto desde el navegador
+http://vm-0.nombreusuario.kd.io/zftest/public
+
+Para verificar que el archivo .htaccess está funcionando, 
+navegamos a http://vm-0.nombreusuario.kd.io/zftest/public/loquesea y debería saler un error 404 con el logo de ZF
+
+Ahora editaremos la vista del Controlador Index del Modulo Application, Controlador Aplication
+  
+$> vim /var/www/zftest/module/Application/view/application/index/index.phtml
+    dG  ---> borra de la primera a la última línea
+    i   ---> entra en modo inserción                               
+    <h1> Hola Mundo desde Zend Framework 2 </h1>                                  
+
+Ahora entramos a 
+http://vm-0.nombreusuario.kd.io/zftest/public
+y veremos el mensaje del hola mundo
+
+5.- Configuración de Desarrollo Local
+#######################################################################################################
+
+5.1.- Entorno LAMP o WAMP
+------------------------------------------------------------------------------------------------------
+Trabajaremos con Netbeans y con ello se requiere un entorno LAMP o WAMP local instalado
+
+5.1.1.- Entorno WAMP
+#################################################################################################################
+Descargar y Ejecutar xampp portable desde 
+http://ufpr.dl.sourceforge.net/project/xampp/XAMPP%20Windows/1.8.3/xampp-portable-win32-1.8.3-4-VC11-installer.exe
+
+ó para windows xp
+http://ufpr.dl.sourceforge.net/project/xampp/XAMPP%20Windows/1.8.2/xampp-portable-win32-1.8.2-5-VC9-installer.exe
+
+Esto descomprimirá XAMPP en
+C:\xampp
+
+Ahora agregar en el PATH de windows las rutas:
+c:\xampp\php
+
+Ejecutar ahora en cmd
+C:> php -i
+
+5.1.1.1.- Instalar Composer
+-----------------------------------------------------------------------------------------------------
+Editar C:\xampp\php\php.ini
+
+Y habilitar la extensión php_openssl.dll
+
+Descargar Composer
+------------------ 
+http://getcomposer.org/Composer-Setup.exe
+
+Composer modificará el PATH y agregará la ruta de composer
+
+C:> echo %PATH%
+
+5.1.2.- Entorno LAMP
+###############################################################################################################
+$> sudo su - 
+	 
+- Primero actualizamos la lista de paquetes instalables
+
+$> apt-get update   
+
+Instalación de PHP, MySQL y Apache (Entorno de Desarrollo)
+$> apt-get install php5 apache2 php5-cli php5-xdebug php5-mysql mysql-server php5-mcrypt php5-gd php5-memcache php-pear        
+
+Luego ejecutar todos los pasos de la sección 4
+
+5.2.- IDE de desarrollo Netbeans
+#######################################################################################################
+Instalar la JVM desde 
+www.java.com
+
+Netbeans
+------------------------------------------------------------------------
+Instalaremos Netbeans, este IDE se puede descargar gratuitamente de 
+www.netbeans.org
+Existen versiones tanto para Windows como para Linux
+
+Windows
+http://dlc.sun.com.edgesuite.net/netbeans/8.0/final/bundles/netbeans-8.0-php-windows.exe
+
+Linux
+http://dlc.sun.com.edgesuite.net/netbeans/8.0/final/bundles/netbeans-8.0-php-linux.sh
+
+5.3.- Hola Mundo En Zend Framework 2 desde Netbeans
+######################################################################################################
+
+5.2.1.- Configuración de Zend Framework 2 en Netbeans
+------------------------------------------------------------------------------------------------------
+Abrimos Netbeans y vamos a la aopción
+
+Tools --> Options --> PHP --> Framework & Tools --> Zend2
+
+Nos pide la ruta de la aplicación Skeleton (plantilla de proyecto de Zend Framework2)
+que lo vamos a descargar de la siguiente dirección
+
+https://github.com/zendframework/ZendSkeletonApplication/archive/master.zip
+
+En el cuadro de texto Skeleton le damos la ruta del archivo descargado
+ 
+Luego presionamos Apply y OK
+
+5.2.2.- Nuevo Proyecto de Zend Framework 2
+------------------------------------------------------------------------------------------------------
+Vamos al menú 
+File --> New Project
+PHP --> PHP Application 
+
+Next>
+
+ProjectName:        holamundo
+Sources Folder:     C:\xampp\htdocs\holamundo (Windows)
+                    /var/www/holamundo    (Linux)
+PHP Version:        5.5
+Default encoding:   UTF-8
+
+Next>
+
+Project URL:        http://localhost/holamundo/public   (despliegue local)
+Project URL:        http://vm-0.nombreusuario.kd.io/holamundo/public   (despliegue remoto en koding)
+
+Next>
+
+PHP Frameworks:     Zend2 PHP Web Framework  
+
+Next>
+
+Finish
+
+5.- Gestión del Código Fuente
+#######################################################################################################
+Crear una cuenta en 
+www.github.com
+
+5.1.- Crear un nuevo repositorio
+######################################################################################################
+Repository Name:             holamundo
+Description:                 Hola Mundo
+Public
+Initialize this repository with a README
+Add gitignore:               ZendFramework
+Add a License:               GPL v2
+
+Create Repository
+
+5.2.- Configuración de Netbeans con Git
+######################################################################################################
+Clonar el repositorio de github
+
+Crear un nuevo proyecto a partir de código fuente
+
+Copiar el código fuente del proyecto zend al nuevo proyecto
+
+Sincronizar el código fuente con github

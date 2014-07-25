@@ -4,7 +4,6 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -28,20 +27,25 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
     public function onBootstrap(MvcEvent $e) {
         $e->getApplication()->getServiceManager()->get('translator');
         $eventManager = $e->getApplication()->getEventManager();
+        $app = $e->getApplication();
+        $sm = $app->getServiceManager();
+        $nav = $sm->get('Navigation');
+            
+        $alias = $sm->get('Application\Router\Alias');
+        $alias->setNavigation($nav);
+
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-
-
         $eventManager->attach('route', function($e) {
+            // verificando si el usuario esta logueado
             $auth = new AuthenticationService();
             $is_login = false;
-            if (!$auth->hasIdentity()) {
+            if ($auth->hasIdentity()) {
                 $is_login = true;
             }
 
             // validamos si entramos en el index del portal
             $is_front = false;
-
             // obtenemos la ruta del request
             $ruta = $e->getRouter()->getRequestUri()->getPath();
 
@@ -75,6 +79,10 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
     public function getServiceConfig() {
         return array(
             'factories' => array(
+                'Application\Router\Alias' => function($sm) {
+            $alias = new \Application\Router\Alias('/node[/:id]');
+            return $alias;
+        },
                 'Smeagol\Model\NodeTable' => function($sm) {
             $tableGateway = $sm->get('NodeTableGateway');
             $table = new NodeTable($tableGateway);
